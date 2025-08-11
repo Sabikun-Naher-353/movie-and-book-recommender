@@ -168,3 +168,4 @@ movie-book-recommender/
 - Make the UI fully responsive for mobile devices
 - Personalized recommendations using machine learning
 - Better UI/UX with frameworks like React 
+"# movie-and-book-recommender" 
