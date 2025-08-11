@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Detail</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+      background-color: #b2b2b2; 
+    }
+
+    img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 300px;
+      height: 60px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    #reviewText {
+      background-color: #FFFACD; 
+    }
+
+    #commentText {
+      background-color: #ffffff;
+    }
+
+    .review-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #008080; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .review-btn:hover {
+      background-color: #008080;
+    }
+
+    .comment-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #28a745; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .comment-btn:hover {
+      background-color: #28a745;
+    }
+
+    .back-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #800020; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #800020;
+    }
+
+    #movie-info, #reviews, #comments {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Movie Detail</h2>
+
+  <div id="movie-info">
+    <img id="cover" alt="Cover Image" />
+    <h3 id="title"></h3>
+    <p id="desc"></p>
+  </div>
+
+  <h3>Write a Review</h3>
+  <textarea id="reviewText" placeholder="Write your review here..."></textarea><br>
+  <button class="review-btn" onclick="submitReview()">Submit Review</button>
+
+  <h3>Write a Comment</h3>
+  <textarea id="commentText" placeholder="Write your comment here..."></textarea><br>
+  <button class="comment-btn" onclick="submitComment()">Submit Comment</button>
+
+  <h3>All Reviews</h3>
+  <div id="reviews">Loading...</div>
+
+  <h3>All Comments</h3>
+  <div id="comments">Loading...</div>
+
+  <button class="back-btn" onclick="location.href='movies.html'">Back to movie</button>
+
+  <script src="js/movie_detail.js"></script>
+</body>
+</html>

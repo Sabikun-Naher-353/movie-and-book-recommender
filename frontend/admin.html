@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input, select { width: 100%; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>🛠 Admin Panel</h1>
+
+  <h2>Add Item</h2>
+  <div class="form-group">
+    <label>Item Type:</label>
+    <select id="item-type">
+      <option value="movie">Movie</option>
+      <option value="book">Book</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Title:</label>
+    <input type="text" id="title" />
+  </div>
+
+  <div class="form-group">
+    <label>Genre / Author:</label>
+    <input type="text" id="genreOrAuthor" />
+  </div>
+   <div class="form-group">
+  <label>Cover Image URL:</label>
+  <input type="text" id="cover_image" />
+</div>
+  <button onclick="addItem()">Add</button>
+
+  <hr>
+
+  <h2>Delete Item</h2>
+  <div class="form-group">
+    <label>Item Type:</label>
+    <select id="del-item-type">
+      <option value="movie">Movie</option>
+      <option value="book">Book</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Item ID:</label>
+    <input type="number" id="item-id" />
+  </div>
+
+  <button onclick="deleteItem()">Delete</button>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

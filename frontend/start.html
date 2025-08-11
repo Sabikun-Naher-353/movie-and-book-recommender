@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start Panel</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #b2b2b2;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      margin: 20px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .user-btn {
+      background-color: #008080; 
+    }
+
+    .user-btn:hover {
+      background-color: #008080;
+      transform: scale(1.05);
+    }
+
+    .admin-btn {
+      background-color: #800020; 
+    }
+
+    .admin-btn:hover {
+      background-color: #800020;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1> Welcome to Movie & Book Recommendation System</h1>
+
+  <button class="btn user-btn" onclick="location.href='index.html'">User</button>
+  <button class="btn admin-btn" onclick="location.href='admin-login.html'">Admin</button>
+
+</body>
+</html>

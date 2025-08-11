@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recommendations</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #b2b2b2;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 40px;
+      color: #333;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:nth-child(2) { background-color: #28a745; } /* Genre */
+    button:nth-child(3) { background-color: #f39c12; } /* Rating */
+    button:nth-child(4) { background-color: #e74c3c; } /* Trending */
+
+    button:nth-child(2):hover { background-color: #218838; }
+    button:nth-child(3):hover { background-color: #d68910; }
+    button:nth-child(4):hover { background-color: #c0392b; }
+
+    #dynamicContent {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 70vh;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    .genre-search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .genre-search input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      margin-bottom: 10px;
+    }
+
+    .genre-search button {
+      background-color: #3498db;
+    }
+
+    .genre-search button:hover {
+      background-color: #2c80b4;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: white;
+      display: flex;
+      gap: 15px;
+    }
+
+    .card img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .card-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .card-content h4 {
+      margin: 0 0 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Recommendations</h2>
+  <button onclick="showGenre()">🎯 By Genre</button>
+  <button onclick="showRating()">⭐ By Rating</button>
+  <button onclick="showTrend()">🔥 Trending</button>
+
+  <div id="dynamicContent"></div>
+
+  <script src="js/recommend.js"></script>
+</body>
+</html>

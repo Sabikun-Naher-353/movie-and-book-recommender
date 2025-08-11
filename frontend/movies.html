@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies</title>
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please login first");
+      window.location.href = "login.html";
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background-color: #b2b2b2;
+      padding: 30px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 15px;
+      display: inline-block;
+      width: 300px;
+      text-align: left;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .movie-title {
+      background-color: #008080; 
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .movie-title a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      background-color: #6a0dad; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #388E3C;
+    }
+
+    #searchBox {
+      padding: 10px;
+      width: 300px;
+      margin: 20px 0;
+      font-size: 16px;
+      border: 1px solid #999;
+      border-radius: 5px;
+    }
+
+    #backHomeBtn {
+      background-color: #800020; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 8px 16px;
+      margin-top: 5px;
+    }
+
+    #backHomeBtn:hover {
+      background-color: #800020;
+    }
+  </style>
+</head>
+<body>
+  <h2>Movie List</h2>
+
+  <input type="text" id="searchBox" placeholder="Search movie by title..." oninput="filterMovies()">
+
+  <div id="movie-list"></div>
+<button id="backHomeBtn" onclick="location.href='home.html'">Back to Home</button>
+  
+
+  <script>
+    let allMovies = [];
+
+    fetch("http://localhost:3000/api/items/movies")
+      .then(res => res.json())
+      .then(data => {
+        allMovies = data;
+        displayMovies(allMovies);
+      });
+
+    function displayMovies(movies) {
+      const container = document.getElementById("movie-list");
+      container.innerHTML = "";
+      if (movies.length === 0) {
+        container.innerHTML = "<p>No matching movie found.</p>";
+        return;
+      }
+      movies.forEach(movie => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="movie-title">
+            <a href="movie_detail.html?id=${movie.movie_id}">${movie.title}</a>
+          </div>
+          <p><strong>Genre:</strong> ${movie.genre}</p>
+          <p><strong>Rating:</strong> ${movie.avg_rating}</p>
+          <button class="btn" onclick="rateItem('movie', ${movie.movie_id})">Rate</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterMovies() {
+      const searchTerm = document.getElementById("searchBox").value.toLowerCase();
+      const filtered = allMovies.filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm)
+      );
+      displayMovies(filtered);
+    }
+
+    function rateItem(type, id) {
+      const rating = prompt("Rate from 1 to 5:");
+      const user = JSON.parse(localStorage.getItem("user"));
+      fetch("http://localhost:3000/api/ratings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: user.user_id,
+          item_type: type,
+          item_id: id,
+          rating: parseInt(rating)
+        })
+      })
+      .then(res => res.json())
+      .then(data => alert(data.message || data.error));
+    }
+  </script>
+</body>
+</html>

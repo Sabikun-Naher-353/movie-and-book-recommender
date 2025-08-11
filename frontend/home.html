@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please login first");
+      window.location.href = "login.html";
+    }
+  </script>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      padding-top: 80px;
+      background-color: #b2b2b2;
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      color: darkblue;
+      font-size: 30px;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      margin: 20px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:nth-of-type(1) { background-color: #008080; }     /* Movies */
+    .btn:nth-of-type(2) { background-color: #2A9DF4; }     /* Books */
+    .btn:nth-of-type(3) { background-color: #3EB489; }     /* Recommendations */
+    .btn:nth-of-type(4) { background-color: #FF6F61; }     /* Profile */
+    .btn:nth-of-type(5) { background-color: #dc143c; }     /* Logout */
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <h2>Welcome, <span id="username"></span></h2>
+
+  <button class="btn" onclick="location.href='movies.html'">Movies</button>
+  <button class="btn" onclick="location.href='books.html'">Books</button>
+  <button class="btn" onclick="location.href='recommend.html'">Recommendations</button>
+  <br><br>
+  <button class="btn" onclick="location.href='profile.html'">Profile</button>
+  <button class="btn" onclick="logout()">Logout</button>
+
+  <script>
+    const u = JSON.parse(localStorage.getItem("user"));
+    document.getElementById("username").innerText = u?.username || "User";
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

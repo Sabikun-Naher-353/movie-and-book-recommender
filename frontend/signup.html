@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background-color: #b2b2b2;
+    }
+
+    .container {
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #fff8dc; 
+    }
+
+    input {
+      margin: 8px 0;
+      padding: 8px;
+      width: 100%;
+      max-width: 250px;
+      background-color: #f0f0f0; 
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin: 8px 0;
+      padding: 8px;
+      width: 100%;
+      max-width: 250px;
+      background-color: #007BFF; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Create Account</h2>
+    <form id="signupForm">
+      <input type="text" placeholder="Username" name="username" required /><br />
+      <input type="email" placeholder="Email" name="email" required /><br />
+      <input type="password" placeholder="Password" name="password" required /><br />
+      <input type="date" placeholder="Birth Date" name="birth_date" required /><br />
+      <button type="submit">Register</button>
+    </form>
+    <p id="result"></p>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
