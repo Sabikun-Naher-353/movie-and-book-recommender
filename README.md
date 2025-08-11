@@ -169,3 +169,6 @@ movie-book-recommender/
 - Personalized recommendations using machine learning
 - Better UI/UX with frameworks like React 
 "# movie-and-book-recommender" 
+
+## Video Link:
+https://drive.google.com/file/d/1x2BE0k4f6bRqbWlaI_fIzsRLLGdiVC-O/view?usp=sharing
