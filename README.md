@@ -1,10 +1,11 @@
 # GROUP DETAILS
    Group name:
    Group Members:
-   1.Nishat Tasnim (231-115-336) - Contribute on frontend + backend
-   2.Fahmina Zannat Khan Zebin (231-115-341) - Contribute on frontend + backend
-   3.Manar Toufique Chowdhury (231-115-342) - Contribute on frontend
-   4.Sabikun Naher Islam Amrin (231-115-353) - Contribute on frontend + backend
+   1. Nishat Tasnim (231-115-336) - Contribute on frontend + backend  
+   2. Fahmina Zannat Khan Zebin (231-115-341) - Contribute on frontend + backend  
+   3. Manar Toufique Chowdhury (231-115-342) - Contribute on frontend  
+   4. Sabikun Naher Islam Amrin (231-115-353) - Contribute on frontend + backend  
+
 
 # Movie & Book Recommendation System
 
